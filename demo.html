@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=TKjvN0erwb3AxwsQGverRPVCUQptTadsfjvZxnJ3RX0H8zI-4ktsmn5ePE1RNB9hr5zlXeVEsgXOPW08KQxESWs7n0zPtqqXDLi_rEbrZSCxCtBSrwwTcxnipqxvonxNZYItprVsIGIeFiTdfT8wBqg82rvLqa00MNnu4ZI4rv87LaYZm7PW0WffGPDoSKwUp2K0VlE9Hdtr0h13HRfzodL4dYaxCzs0qJLjwg0VyL_LYqyemv1QI9CTm-F1m547zXnXCVteYGBeHtB5Gj-cOGyuyrUReHWuEajVgzhmfLXEAHJDrTo44il6K-J_xxacVbrwuAHtYtEri6CUN4H37nk8rHYjwWvmakSaZEW9kL5gCpEYkgX0oDlUeGnnJFJqSuOncH_aM2YFhcZ1PiHT7OqIdMiKdP8yt9YRKbuAEworIXCOUWOHNBtU2gWPuV2jjrgXwRiX4GsFk_4MiSL0diYb0XISI1adYnjm965zi0knpC8EDo_OkhHnTXcOt2fnLWg3pWTKVm3YY0VoY_jjIgbnEQMRqIJXoNpFUGEOmxB2QHWlDay50y5wRMz8oqzXJAfDHfsjUsrLcSxwSeXdxFWaCh7JK2qPsZJ8keY7OrY9eU1AcqCWiJb9Z_ZnPdWMMvU_C70CIZalEuk_KlBhlg4BFaAFcBZZFDFSrc9pFMbC6zSyhbLA1frLgwPdAmfVsxdW_kTn_q8cwXE7InE3-HVASmInQc7LLI7dBnJSbWvxBrwI4XheLPMEfxEWlAOumxe_M4jpOfCFz8z8cNu68dUl0XFDEGGB1yNFaRjbtIAAq_GO5_qFJDsdvVr6o6eynWqMBDWJfeVReajmGGGRP0Tr4bxGUVMwXhAQWRghHf5zd-uO4N4gcwmtqL_WkQy3ZhwH06fk-FmC6PE0UH3BeEnEiQ7GYjlK01i8QWsLgihDlRMLxy-BbzWG3mPqI0MYrRwX9IFiGf0NtIPHv21mKrxudu8Ef0NFpaWxfbXSJ09xmGMrD2iR0m2kAlwwrA-VlctL8FamV6qy3LdOfKkfeIRWJgQ7pGXqacxWc9LE4KJG-9cC8_bg-_VLgd_sboG1i3ftofT-QuVyfRq416QSUI-FOiIdENff7zBD_0OA55PylBpJlOKwCxjLE-BtoCvjzd_gEVLjUCzZ9ywl41IN45HYHc4nHmepxJNA9i4sGUEV4CEyPZ46l-SgOmOoBNLlVqa0EBxZxTMWk-XYRnlEgg" nonce="a22c5704e0261aa975cf043ce0c66842" charset="UTF-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+
+body{
+    background-color:#fd918b ;
+}
+
+#container{
+    width: 400px;
+        background-color: white;
+        margin: auto;
+        margin-top: 50px;
+        border-radius: 20px;
+        border: 1px solid white ;
+        box-shadow: 0px 0px 62px #000;
+        -
+}
+
+#header{
+        text-align: center;
+        padding: 4px;
+        margin: 25px;
+    }
+    #form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+    }
+    #list{
+        height: 400px; 
+        overflow: auto;
+    }
+   .delete{
+       background-color:white;
+       border-radius: 12px;
+       font-size: 21px;
+
+   }
+   #wrt{
+   width: 400px;
+    height: 50px;
+    border-radius:24px;
+    margin: 10px;
+    background-color: white;
+   }
+  #addbutton {
+    height: 55px;
+    border-radius:23px;
+    width: 60px;
+    background-color: white;
+  }
+
+.item > div{
+    width: calc(100% - 130px);
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.item{
+    height: 100px;
+}
+.item label {
+    font-size: 24px;
+}
+}
+</style>
+<body>
+   <div  id="container">
+       <div id= "header">
+           <h2>4 Tasks</h2>
+       </div>
+    <div id="list">
+    </div> 
+    <div id="form">
+        <input type="text" placeholder="add todo.." id="wrt" >
+        <button id="addbutton" >add</button>
+    </div>  
+
+</body>
+<script>
+    var list = [];
+   
+    let $listNode = $('#list');
+    let $wrt = $('#wrt');
+    let $addbutton = $('#addbutton');
+     
+    
+    $addbutton.on('click', function () {
+      var item = $wrt.val();
+      var hasArr=list.find(function(val){
+          return val.item === item;
+     });
+    if (hasArr){
+        alert('list has item');}
+            
+    else if (item.length > 0){
+            list.push({
+            item:item,
+            checked:false,
+            id:list.length
+            });
+        renderList();
+        $wrt.val(''); }
+    else {
+       alert('item can not empaty');
+      }
+    });
+
+    $listNode.on('change', '.is-okey', function(){
+        var isOkey = $(this).prop('checked');
+        var index = $(this).attr('index');
+        list[index].checked = isOkey;
+        renderList();
+    });
+
+    $listNode.on('click', '.delete', function(){  
+        var index = $(this).attr('index');
+        list = list.filter(function(val){
+            return val.id !== parseInt(index);
+        })
+        renderList();
+    });
+    
+    renderList();
+
+    function renderList(){
+      $listNode.empty();
+      for (var i=0; i<list.length; i++){
+          let $item = $(`<div class="item" >
+                            <div>
+                                <input type="checkbox" class="is-okey" index="${list[i].id}">
+                                <label>${list[i].item}</label>
+                            </div>
+                            <button class="delete" index="${list[i].id}">delete</button>
+                        </div>`);
+            if(list[i].checked === true){
+                $item.find('label').css("text-decoration", "line-through");
+                $item.find('input').prop("checked", true);
+            }
+            $listNode.append($item);   
+      }
+    }
+  
+</script>
+</html>
